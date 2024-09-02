@@ -2,11 +2,11 @@
 
 #include "core/variant/variant.h"
 
-CharString Profiler ::stringify_method(const StringName &p_method, const Variant **p_args, int p_argcount) {
+CharString Profiler ::stringify_method(const StringName &p_method, const Variant **p_args, const int p_argc) {
 #ifdef TRACY_ENABLE
 	String out = p_method;
 	out += "(";
-	for (int i = 0; i < p_argcount; i += 1) {
+	for (int i = 0; i < p_argc; i += 1) {
 		if (i != 0) {
 			out += ", ";
 		}
