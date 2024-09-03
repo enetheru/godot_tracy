@@ -1,8 +1,12 @@
 #include "profiler.h"
 
-#include "core/variant/variant.h"
+#include <core/variant/variant.h>
 
-CharString Profiler ::stringify_method(const StringName &p_method, const Variant **p_args, const int p_argc) {
+#include <limits>
+
+namespace tracy {
+
+CharString stringify_method(const String &p_method, const Variant **p_args, const int p_argc) {
 #ifdef TRACY_ENABLE
 	String out = p_method;
 	out += "(";
@@ -21,4 +25,6 @@ CharString Profiler ::stringify_method(const StringName &p_method, const Variant
 #else
 	return CharString();
 #endif
+}
+
 }
