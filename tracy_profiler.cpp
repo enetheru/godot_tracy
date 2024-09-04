@@ -7,7 +7,7 @@
 #include <cstring>
 
 TracyProfiler *TracyProfiler::singleton = nullptr;
-
+#ifdef TRACY_ENABLE
 static uint64_t context_to_id(const ___tracy_c_zone_context context) {
 	static_assert(sizeof(___tracy_c_zone_context) == sizeof(uint64_t));
 	// I want to use std::bit_cast, alas this is c++17.
@@ -23,6 +23,7 @@ static ___tracy_c_zone_context id_to_context(uint64_t godot_id) {
 	std::memcpy(&context, &godot_id, sizeof godot_id);
 	return context;
 }
+#endif
 
 void TracyProfiler::_bind_methods() {
 	ClassDB::bind_static_method("TracyProfiler", D_METHOD("zone_begin", "zone_name"), &TracyProfiler::zone_begin);
