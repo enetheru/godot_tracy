@@ -6,7 +6,7 @@
 
 namespace tracy {
 
-CharString stringify_method(const String &p_method, const Variant **p_args, const int p_argc) {
+String stringify_method(const String &p_method, const Variant **p_args, const int p_argc) {
 	String out = p_method;
 	out += "(";
 	for (int i = 0; i < p_argc; i += 1) {
@@ -15,12 +15,13 @@ CharString stringify_method(const String &p_method, const Variant **p_args, cons
 		}
 		out += p_args[i]->operator String();
 	}
-	out += ")";
-	CharString c = out.utf8();
-	if (c.size() >= std::numeric_limits<uint16_t>::max()) {
-		c.resize(std::numeric_limits<uint16_t>::max() - 1);
+	if (out.length() >= 256) {
+		out.resize( 256 );
+		out += " ... )";
+	} else {
+		out += ")";
 	}
-	return c;
+	return out;
 }
 
 }
