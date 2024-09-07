@@ -6,4 +6,4 @@ This is a fork of [AndreaCatania](https://github.com/AndreaCatania/godot_tracy)'
 
 I have stripped the readme, please see upstream for instructions.
 
-I have a [patch](https://github.com/enetheru/godot_tracy/issues/1) for godot 4.3 with my instrumentation in the issues list.
+I have a [branch]([https://github.com/enetheru/godot_tracy/issues/1](https://github.com/enetheru/godot/tree/4.3-tracy)) with my changes to godot if you want to trace from within the engine.
