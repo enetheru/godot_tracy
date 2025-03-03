@@ -4,6 +4,8 @@
 
 This is a fork of [AndreaCatania](https://github.com/AndreaCatania/godot_tracy)'s repo.
 
-I have stripped the readme, please see upstream for instructions.
+I think I've diverged enough that the above repo instructions no longer help.
+
+I'm moving to a godot branch where I can put the tracy/public folder in 'thirdparty'
 
 I have a [branch]([https://github.com/enetheru/godot_tracy/issues/1](https://github.com/enetheru/godot/tree/4.3-tracy)) with my changes to godot if you want to trace from within the engine.
